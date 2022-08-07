@@ -1,10 +1,13 @@
 package ivandjoh.online.springredis.entity;
 
 import javax.persistence.*;
+import java.io.Serializable;
 
 @Entity
 @Table(name = "user")
-public class User {
+public class User implements Serializable {
+
+    private static final long serialVersionUID = 7156526077883281623L;
 
     @Id
     @GeneratedValue
