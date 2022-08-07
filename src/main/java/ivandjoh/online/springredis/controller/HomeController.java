@@ -30,4 +30,9 @@ public class HomeController {
     public ResponseEntity<User> addUser(@RequestBody User user) {
         return userService.addUser(user);
     }
+
+    @PutMapping("/user/update/{id}")
+    public User updateUser(@PathVariable("id") Long id, @RequestBody User user) {
+        return userService.updateUser(id, user);
+    }
 }
