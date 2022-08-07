@@ -26,13 +26,24 @@ public class HomeController {
         return userService.getAllUsers();
     }
 
+    @GetMapping("/user/{id}")
+    public User getUserById(@PathVariable Long id) {
+        return userService.getUserById(id);
+    }
+
     @PostMapping("/user/add")
-    public ResponseEntity<User> addUser(@RequestBody User user) {
+    public User addUser(@RequestBody User user) {
         return userService.addUser(user);
     }
 
     @PutMapping("/user/update/{id}")
     public User updateUser(@PathVariable("id") Long id, @RequestBody User user) {
         return userService.updateUser(id, user);
+    }
+
+    @DeleteMapping("/user/delete/{id}")
+    public String deleteUser(@PathVariable("id") Long id) {
+        userService.deleteUser(id);
+        return "User with Id : " + id + " was successfully deleted!";
     }
 }
